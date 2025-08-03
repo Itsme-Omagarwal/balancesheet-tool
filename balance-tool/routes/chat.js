@@ -4,12 +4,11 @@ const pool = require('../db');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const router = express.Router();
-console.log("✅ chat.js loaded");
+console.log("chat.js loaded");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "models/gemini-1.5-flash" });
 
-// 🔹 POST /chat → ask question
 router.post('/', authenticateToken, async (req, res) => {
   console.log("📩 /chat endpoint hit", req.method);
 
@@ -56,7 +55,6 @@ Only return valid JSON, no explanation or formatting.`
 let responseType = 'text';
 
     if (wantsChart) {
-    // Remove code block wrapper like ```json ... ```
     const jsonMatch = rawAnswer.match(/```(?:json)?\s*([\s\S]+?)\s*```/i);
     if (jsonMatch) {
         answer = jsonMatch[1].trim();
@@ -84,7 +82,6 @@ let responseType = 'text';
   }
 });
 
-// 🔹 GET /chat/history → fetch previous chats
 router.get('/history', authenticateToken, async (req, res) => {
   const { role, userId, companyId } = req.user;
 
