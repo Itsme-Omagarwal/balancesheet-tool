@@ -1,18 +1,12 @@
-/* src/index.css */
 
-/*
-  CRITICAL: These rules ensure html and body take up the full viewport.
-  They explicitly set width/height to 100% and remove any default margins/paddings
-  or accidental fixed widths that might be applied.
-*/
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;       /* This MUST be 100% to fill the browser window */
-  min-width: 0;      /* Ensure no default or inherited min-width constrains it */
-  max-width: none;   /* Ensure no default or inherited max-width constrains it */
+  width: 100%;      
+  min-width: 0;      
+  max-width: none;   
   height: 100%;
-  box-sizing: border-box; /* Good practice for consistent box model */
+  box-sizing: border-box; 
 }
 
 
@@ -23,7 +17,7 @@ html, body {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; /* This background is for :root, which now should be full screen */
+  background-color: #242424; 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -41,11 +35,7 @@ a:hover {
 }
 
 body {
-  /* Keep this rule empty or only for properties that don't affect overall sizing.
-     The 'html, body' rule handles the primary sizing. */
-  /* Ensure no 'display: flex;', 'place-items: center;', 'width', 'max-width', or 'min-width' are here. */
-  /* If you want a minimum width for the *content* on very small screens,
-     you'd apply that to your main content div in Home.jsx, not to the body. */
+ 
 }
 
 h1 {
