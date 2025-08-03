@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import History from './pages/History';
 import { setAuthToken } from './utils/api';
 
-// Restore token on app start
 const token = localStorage.getItem('jwt');
 if (token) setAuthToken(token);
 
