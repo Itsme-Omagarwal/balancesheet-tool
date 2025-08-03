@@ -1,8 +1,7 @@
-// middleware/auth.js
+
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-// Middleware for role-checking (used if needed)
 function requireRole(role) {
   return (req, res, next) => {
     if (req.user.role !== role && req.user.role !== 'admin') {
@@ -27,7 +26,6 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// Optional middleware variant (you can remove if not needed)
 function authMiddleware(req, res, next) {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) return res.status(401).send("No token provided");
