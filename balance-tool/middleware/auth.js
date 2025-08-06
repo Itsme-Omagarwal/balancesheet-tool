@@ -21,7 +21,7 @@ const authenticateToken = (req, res, next) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) return res.status(403).json({ error: 'Token invalid' });
 
-    req.user = user; // Contains id, role, company_id
+    req.user = user; 
     next();
   });
 };
